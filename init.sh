@@ -17,3 +17,6 @@ brew install --cask docker
 brew install --cask pycharm
 brew install --cask goland
 brew install --cask google-chrome
+brew install --cask spotify
+brew install --cask slack
+brew install --cask zoom
