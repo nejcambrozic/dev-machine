@@ -3,6 +3,22 @@ name = Nejc Ambrozic
 email = nejc.ambrozi@gmail.com
 [alias]
 a = add
+aa = add .
 s = status
+b = branch
+c = commit
+co = checkout
+d = diff
+ca = commit --amend
+cf = commit --fixup
+fm = fetch origin master
+rom = !git fm && git rebase origin/master
+rim = !git rom -i --autosquash
+ac = "!f(){ git add . && git commit; };f"
+cmp = "!f(){ git checkout master && git pull; };f"
+aca = "!f(){ git add . && git ca; };f"
 poh = push origin head
-lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit "
+pohf = push origin head -f
+bprune = "!f(){ git branch | grep -v "master" | xargs git branch -D; };f" 
+wip = "!f(){ git add . && git commit -m 'wip'; };f"
+lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
