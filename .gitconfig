@@ -1,6 +1,6 @@
 [user]
 name = Nejc Ambrozic
-email = nejc.ambrozi@gmail.com
+email = nejc.ambrozi@gmail.com 
 [alias]
 a = add
 aa = add .
@@ -8,17 +8,23 @@ s = status
 b = branch
 c = commit
 co = checkout
+cb = checkout -b
 d = diff
+ds = diff --cached
 ca = commit --amend
 cf = commit --fixup
 fm = fetch origin master
 rom = !git fm && git rebase origin/master
 rim = !git rom -i --autosquash
+rhom = reset --hard origin/master
 ac = "!f(){ git add . && git commit; };f"
 cmp = "!f(){ git checkout master && git pull; };f"
 aca = "!f(){ git add . && git ca; };f"
 poh = push origin head
 pohf = push origin head -f
+ua = restore --staged .
 bprune = "!f(){ git branch | grep -v "master" | xargs git branch -D; };f" 
-wip = "!f(){ git add . && git commit -m 'wip'; };f"
+wip = "!f(){ git add . && git commit -n -m 'wip'; };f"
 lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+[core]
+	excludesFile = ~/.gitignore
