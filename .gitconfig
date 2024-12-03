@@ -2,29 +2,54 @@
 name = Nejc Ambrozic
 email = nejc.ambrozi@gmail.com 
 [alias]
+main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+remotesh = remote set-head origin --auto
+
+# state mgmt
 a = add
 aa = add .
-s = status
-b = branch
-c = commit
-co = checkout
-cb = checkout -b
+ua = restore --staged .
 d = diff
 ds = diff --cached
+s = status
+
+rhom = reset --hard origin/$(git main-branch)
+cmp = "!f(){ git checkout $(git main-branch) && git pull; };f"
+
+
+# commits
+ac = "!f(){ git add . && git commit; };f"
+c = commit
 ca = commit --amend
 cf = commit --fixup
-fm = fetch origin master
-rom = !git fm && git rebase origin/master
-rim = !git rom -i --autosquash
-rhom = reset --hard origin/master
-ac = "!f(){ git add . && git commit; };f"
-cmp = "!f(){ git checkout master && git pull; };f"
 aca = "!f(){ git add . && git ca; };f"
+wip = "!f(){ git add . && git commit -n -m 'wip'; };f"
+rsh = reset --soft HEAD~1
+
+# branches
+b = branch --sort=creatordate
+co = checkout
+cb = checkout -b
+
+fm = !git fetch origin $(git main-branch)
+
+rhom = reset --hard origin/$(git main-branch)
+cmp = "!f(){ git checkout $(git main-branch) && git pull; };f"
+
 poh = push origin head
 pohf = push origin head -f
-ua = restore --staged .
-bprune = "!f(){ git branch | grep -v "master" | xargs git branch -D; };f" 
-wip = "!f(){ git add . && git commit -n -m 'wip'; };f"
+
+bprune = "!f(){ git branch | grep -v $(git main-branch) | xargs git branch -D; };f"
+
+
+# rebase
+rom = !git rebase origin/$(git main-branch)
+rim = !git rom -i --autosquash --autostash
+arc = !git aa && git rebase --continue
+rmw = !git fm && git rim 
+
+# util
 lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+
 [core]
 	excludesFile = ~/.gitignore
