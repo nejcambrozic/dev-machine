@@ -12,7 +12,7 @@ ssh-keygen -t rsa -b 4096 -C “nejc.ambrozi@gmail.com”
 ssh-add ~/.ssh/id_rsa
 
 # apps
-brew install --cask iterm2
+brew install --cask ghostty
 brew install --cask docker
 brew install --cask pycharm
 brew install --cask goland

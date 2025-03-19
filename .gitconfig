@@ -33,7 +33,7 @@ cb = checkout -b
 
 fm = !git fetch origin $(git main-branch)
 
-rhom = reset --hard origin/$(git main-branch)
+rhom = "!f(){ git reset --hard origin/$(git main-branch); };f"
 cmp = "!f(){ git checkout $(git main-branch) && git pull; };f"
 
 poh = push origin head
