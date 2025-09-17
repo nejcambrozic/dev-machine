@@ -1,0 +1,99 @@
+// Static tasks configuration.
+//
+[
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "args": [],
+    "env": {},
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal_target": "center",
+    "hide": "always"
+  },
+  {
+    "label": "Claude code",
+    "command": "claude",
+    "args": [],
+    "env": {},
+    "use_new_terminal": true,
+    "allow_concurrent_runs": true,
+    "reveal_target": "center",
+    "hide": "always"
+  },
+  {
+    "label": "FileFinder",
+    "command": "zed \"$(tv files)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
+    "label": "FindFiles",
+    "command": "zed \"$(tv text)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
+    "label": "pytest current file",
+    "command": "uv run pytest -s --no-cov",
+    "args": [
+      "$ZED_FILE"
+    ],
+    "tags": [
+      "python"
+    ]
+  },
+  {
+    "label": "migrate",
+    "command": "uv run manage.py migrate",
+    "tags": [
+      "django"
+    ],
+    "hide": "on_success"
+  },
+  {
+    "label": "makemigrations",
+    "command": "uv run manage.py makemigrations",
+    "tags": [
+      "django"
+    ],
+    "hide": "on_success"
+  },
+  {
+    "label": "reset_db",
+    "command": "uv run manage.py reset_db --noinput",
+    "tags": [
+      "django"
+    ],
+    "hide": "on_success"
+  },
+  {
+    "label": "runserver",
+    "command": "uv run manage.py runserver",
+    "tags": [
+      "django"
+    ]
+  },
+  {
+    "label": "prefect-dev",
+    "command": "uv run manage.py prefect dev",
+    "tags": [
+      "prefect"
+    ]
+  },
+  {
+    "label": "dshell",
+    "command": "uv run manage.py shell",
+    "reveal_target": "center",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "args": [],
+    "env": {},
+    "tags": [
+      "django"
+    ],
+    "hide": "on_success"
+  }
+]

@@ -1,0 +1,287 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  // "format_on_save": "on",
+  "edit_predictions": {
+    "disabled_globs": [
+      "**/.git",
+      "**/.svn",
+      "**/.hg",
+      "**/CVS",
+      "**/.DS_Store",
+      "**/Thumbs.db",
+      "**/.classpath",
+      "**/.settings",
+      "**/.vscode",
+      "**/.idea",
+      "**/node_modules",
+      "**/.serverless",
+      "**/build",
+      "**/dist",
+      "**/coverage",
+      "**/.venv",
+      "**/__pycache__",
+      "**/.ropeproject",
+      "**/.pytest_cache",
+      "**/.ruff_cache",
+      "**/.env"
+    ],
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "notification_panel": {
+    "enabled": false,
+    "button": false
+  },
+  "diagnostics": {
+    "button": false,
+    "include_warnings": true,
+    "lsp_pull_diagnostics": {
+      "enabled": true,
+      "debounce_ms": 50
+    },
+    "inline": {
+      "enabled": false,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    },
+    "cargo": null
+  },
+  "agent": {
+    "button": false,
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": true,
+    "single_file_review": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+  },
+  "show_signature_help_after_edits": true,
+  "show_edit_predictions": true,
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "pyright",
+        "basedpyright",
+        "ruff"
+      ],
+      "enable_language_server": true,
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 120,
+          "indent-width": 4,
+          "target-version": "py313",
+          "lint": {
+            "extendSelect": [
+              "I"
+            ]
+          }
+        }
+      }
+    },
+    "basedpyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        },
+        "basedpyright.analysis": {
+          "typeCheckingMode": "basic",
+          "diagnosticMode": "workspace",
+          "inlayHints": {
+            "callArgumentNames": true
+          }
+        }
+      }
+    },
+    "json-language-server": {
+      "settings": {
+        "json": {
+          "schemas": [
+            {
+              "fileMatch": [
+                "*/*.luarc.json"
+              ],
+              "url": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "debugger": {
+    "button": false
+  },
+  "tab_size": 2,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  // Indentation, rainbow indentation
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "terminal": {
+    "env": {
+      "EDITOR": "zed --wait"
+    },
+    "font_size": 14,
+    "font_family": "Zed Plex Mono",
+    "detect_venv": {
+      "on": {
+        // Default directories to search for virtual environments, relative
+        // to the current working directory. We recommend overriding this
+        // in your project's settings, rather than globally.
+        "directories": [
+          ".venv",
+          "venv"
+        ]
+        // Can also be `csh`, `fish`, and `nushell`
+        // "activate_script": "default"
+      }
+    },
+    "button": false
+  },
+  "toolbar": {
+    "title": false,
+    "quick_actions": false
+  },
+  // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
+  "centered_layout": {
+    "left_padding": 0.15,
+    "right_padding": 0.15
+  },
+  // File syntax highlighting
+  "file_types": {
+    "Dockerfile": [
+      "Dockerfile",
+      "Dockerfile.*"
+    ],
+    "JSON": [
+      "json",
+      "jsonc",
+      "*.code-snippets"
+    ]
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.vscode",
+    "**/.idea",
+    "**/node_modules",
+    "**/.serverless",
+    "**/build",
+    "**/dist",
+    "**/coverage",
+    "**/.venv",
+    "**/__pycache__",
+    "**/.ropeproject",
+    "**/.pytest_cache",
+    "**/.ruff_cache"
+  ],
+  "file_scan_inclusions": [
+    ".env"
+  ],
+  // Move all panel to the right
+  "project_panel": {
+    "button": false,
+    "default_width": 300,
+    "dock": "left",
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+  "git_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "dock": "left",
+    "button": false
+  },
+  "collaboration_panel": {
+    "dock": "left",
+    "button": false
+  },
+  "chat_panel": {
+    "dock": "right",
+    "button": "when_in_call"
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "buffer_font_family": "Zed Plex Mono",
+  "ui_font_family": "Zed Plex Mono",
+  "formatter": "language_server",
+  "autosave": "on_focus_change",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "search": {
+    "whole_word": false,
+    "case_sensitive": true,
+    "include_ignored": false,
+    "regex": false,
+    "button": false
+  },
+  "projects_online_by_default": false,
+  "preferred_line_length": 120,
+  "features": {
+    "edit_prediction_provider": "zed"
+  }
+}
